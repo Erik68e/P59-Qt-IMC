@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Recursos/indice-de-masa-corporal.png</file>
+        <file>Recursos/bmi.png</file>
+        <file>Recursos/abrir-correo-electronico.png</file>
+        <file>Recursos/agregar-archivo.png</file>
+        <file>Recursos/boton.png</file>
+        <file>Recursos/salvar.png</file>
+        <file>Recursos/calcular.png</file>
+    </qresource>
+</RCC>
