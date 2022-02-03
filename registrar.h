@@ -5,6 +5,7 @@
 #include <QMessageBox>
 #include <QFile>
 #include <QFileDialog>
+#include <QPainter>
 #include <QDebug>
 #include <iostream>
 #include <string>
@@ -40,6 +41,9 @@ private slots:
 
 private:
     Ui::Registrar *ui;
+
+    QPixmap lienzo;
+    void dibujar();
 
     void limpiar();
     void calcular();

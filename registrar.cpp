@@ -6,6 +6,11 @@ Registrar::Registrar(QWidget *parent)
     , ui(new Ui::Registrar)
 {
     ui->setupUi(this);
+    lienzo = QPixmap(750,130);
+    this->dibujar();
+
+    ui->outCuadro->setPixmap(lienzo);
+
 }
 
 Registrar::~Registrar()
@@ -29,6 +34,125 @@ void Registrar::limpiar()
     ui->inPeso->setValue(0.00);
     ui->inAltura->setValue(0.00);
 }
+
+void Registrar::dibujar()
+{
+    lienzo.fill(Qt::white);
+
+    QPainter painter(&lienzo);
+
+    int x = 0;
+    int y = 0;
+
+    // Crear un pincel para los bordes
+    QPen pincel;
+    pincel.setWidth(5);
+    pincel.setColor(Qt::red);
+    pincel.setJoinStyle(Qt::MiterJoin);
+
+    // Establecer el pincel al "pintor"
+    painter.setPen(pincel);
+
+    // Dibujar primera barra
+    painter.drawRect(x+25, y+25,50,70);
+
+    // Crear un objeto color para el relleno
+    QColor colorRelleno(190,120,162);
+    // Crear otro objeto color para el borde
+    QColor colorBorde(78,3,48);
+    //* Para aclarar los numeros
+    // Establecer un pincel azul
+    painter.setPen(Qt::blue);
+    // Establecer un tipo de letra (font)
+    painter.setFont(QFont("Arial", 7));
+    // Dibujar un texto
+    painter.drawText(10,110,"15");
+
+    // Cambiar el color del pincel
+    pincel.setColor(colorBorde);
+
+    // Volver a establecer el pincel al "pintor"
+    painter.setPen(pincel);
+
+    // Establecer el color al brush (relleno)
+    painter.setBrush(colorRelleno);
+
+    // Dibujar segunda barra
+    painter.drawRect(x+85, y+25, 55, 70);
+
+    // Creando los colores de la tercera barra
+    QColor cRellenoBarra3(253, 253, 115);
+    QColor cBordeBarra3(174, 14, 51);
+
+    // Estableciendo colores al pincel y al painter
+    pincel.setColor(cBordeBarra3);
+    painter.setPen(pincel);
+    painter.setBrush(cRellenoBarra3);
+
+    //* Para aclarar los numeros
+    // Establecer un pincel azul
+    painter.setPen(Qt::blue);
+    // Establecer un tipo de letra (font)
+    painter.setFont(QFont("Arial", 7));
+    // Dibujar un texto
+    painter.drawText(70,110,"20");
+
+    // Dibujar tercera barra
+    painter.drawRect(x+150,y+25,75,70);
+
+    // Creando los colores de la tercera barra
+    QColor cRellenoBarra4(130, 178, 255);
+    QColor cBordeBarra4(100, 174, 51);
+
+    // Estableciendo colores al pincel y al painter
+    pincel.setColor(cBordeBarra4);
+    painter.setPen(pincel);
+    painter.setBrush(cRellenoBarra4);
+
+    //* Para aclarar los numeros
+    // Establecer un pincel azul
+    painter.setPen(Qt::blue);
+    // Establecer un tipo de letra (font)
+    painter.setFont(QFont("Arial", 7));
+    // Dibujar un texto
+    painter.drawText(135,110,"25");
+    painter.drawText(20,13,"|         Promedio");
+    painter.drawText(142,13,"| Sobrepeso |");
+    painter.drawText(300,13,"    Obesidad                     |");
+
+    // Dibujar cuarta barra
+    painter.drawRect(x+235,y+25,85,70);
+
+    // Creando los colores de la tercera barra
+    QColor cRellenoBarra5(178, 208, 255);
+    QColor cBordeBarra5(45, 174, 51);
+
+    // Estableciendo colores al pincel y al painter
+    pincel.setColor(cBordeBarra5);
+    painter.setPen(pincel);
+    painter.setBrush(cRellenoBarra5);
+
+    //* Para aclarar los numeros
+    // Establecer un pincel azul
+    painter.setPen(Qt::blue);
+    // Establecer un tipo de letra (font)
+    painter.setFont(QFont("Arial", 7));
+    // Dibujar un texto
+    painter.drawText(215,110,"32.7");
+
+    // Dibujar quinta barra
+    painter.drawRect(x+330,y+25,100,70);
+
+    //* Para aclarar los numeros
+    // Establecer un pincel azul
+    painter.setPen(Qt::blue);
+    // Establecer un tipo de letra (font)
+    painter.setFont(QFont("Arial", 7));
+    // Dibujar un texto
+    painter.drawText(310,110,"45");
+    painter.drawText(425,110,"55");
+}
+
 void Registrar::calcular()
 {
     ui->outFecha->setText(currentDateTime());
@@ -76,7 +200,7 @@ void Registrar::calcular()
         // Limpiar la interfaz
         limpiar();
         // Mostrar mensage por 5 segundos en la barra de estado
-        ui->statusbar->showMessage("Calculando su IMC ",5000);
+        ui->statusbar->showMessage("Calculando su IMC ",0100);
     }else{
         QMessageBox::critical(this,
                               "Error",
@@ -89,7 +213,7 @@ void Registrar::guardar()
     // Abrir cuadro de dialogo para seleccionar ubicacion y nombre del archivo
     QString nombreArchivo = QFileDialog::getSaveFileName(this,
                                                          "Guardar datos",
-                                                         QDir::home().absolutePath(),
+                                                         QString(),
                                                          "Archivo de salarios (*.slr)");
     qDebug() << nombreArchivo;
     // Crear un objeto QFile
@@ -158,12 +282,17 @@ void Registrar::on_Calcular_clicked()
 
 void Registrar::on_actionNuevo_triggered()
 {
-    limpiar();
-    ui->outHistorial->clear();
-    ui->outFecha->clear();
-    ui->outFecha->setText("-/-/-");
-    ui->outIMC->clear();
-    ui->outIMC->setText("0.0");
+    if(1==1){
+        QString historial = "";
+        historial.append("                                   - - Historial - -\n--------------------------------------------------------------------");
+        limpiar();
+        ui->outHistorial->clear();
+        ui->outHistorial->appendPlainText(historial);
+        ui->outFecha->clear();
+        ui->outFecha->setText("-/-/-");
+        ui->outIMC->clear();
+        ui->outIMC->setText("0.0");
+    }
 }
 
 void Registrar::on_actionGuardar_triggered()

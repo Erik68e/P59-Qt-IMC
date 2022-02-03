@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>821</width>
-    <height>520</height>
+    <width>840</width>
+    <height>693</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -199,6 +199,12 @@
              </item>
              <item row="1" column="0" colspan="3">
               <widget class="QPlainTextEdit" name="outHistorial">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
                <property name="styleSheet">
                 <string notr="true">background-color: rgb(255, 255, 255);</string>
                </property>
@@ -210,6 +216,77 @@
 --------------------------------------------------------------------
 </string>
                </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="1" column="0" colspan="2">
+           <widget class="QWidget" name="widget_9" native="true">
+            <layout class="QGridLayout" name="gridLayout_9">
+             <item row="0" column="0">
+              <widget class="QLabel" name="outCuadro">
+               <property name="minimumSize">
+                <size>
+                 <width>10</width>
+                 <height>100</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::Box</enum>
+               </property>
+               <property name="text">
+                <string>TextLabel</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QWidget" name="widget_10" native="true">
+               <property name="maximumSize">
+                <size>
+                 <width>220</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_10">
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_15">
+                  <property name="maximumSize">
+                   <size>
+                    <width>150</width>
+                    <height>75</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="pixmap">
+                   <pixmap resource="Recursos.qrc">:/Recursos/estilo-de-vida-saludable.png</pixmap>
+                  </property>
+                  <property name="scaledContents">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_16">
+                  <property name="font">
+                   <font>
+                    <family>Gadugi</family>
+                    <pointsize>10</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>         Cuidate </string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </widget>
              </item>
             </layout>
@@ -396,7 +473,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>821</width>
+     <width>840</width>
      <height>26</height>
     </rect>
    </property>
