@@ -8,5 +8,6 @@
         <file>Recursos/salvar.png</file>
         <file>Recursos/calcular.png</file>
         <file>Recursos/estilo-de-vida-saludable.png</file>
+        <file>registrar_ru.qm</file>
     </qresource>
 </RCC>

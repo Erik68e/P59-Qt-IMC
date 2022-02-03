@@ -18,6 +18,8 @@ HEADERS += \
 FORMS += \
     registrar.ui
 
+TRANSLATIONS = registrar_ru.ts \
+
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
@@ -26,5 +28,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     Recursos.qrc
 
-DISTFILES += \
-    Recursos/estilo-de-vida-saludable.png
+DISTFILES +=
+

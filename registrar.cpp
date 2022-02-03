@@ -116,9 +116,9 @@ void Registrar::dibujar()
     painter.setFont(QFont("Arial", 7));
     // Dibujar un texto
     painter.drawText(135,110,"25");
-    painter.drawText(20,13,"|         Promedio");
-    painter.drawText(142,13,"| Sobrepeso |");
-    painter.drawText(300,13,"    Obesidad                     |");
+    painter.drawText(20,13,tr("|         Promedio"));
+    painter.drawText(142,13,tr("| Sobrepeso |"));
+    painter.drawText(300,13,tr("    Obesidad                     |"));
 
     // Dibujar cuarta barra
     painter.drawRect(x+235,y+25,85,70);
@@ -194,17 +194,17 @@ void Registrar::calcular()
     ui->outIMC->setText(masaC);
     if(1 == 1){
         QString str = "";
-        str.append(currentDateTime() + " - " + QString::number(m_peso) + "kg - " + QString::number(m_altura) + "m - IMC: " + masaC +"\n");
+        str.append(currentDateTime() + " - " + QString::number(m_peso) + tr("kg - ") + QString::number(m_altura) + tr("m - IMC: ") + masaC +"\n");
         // Mandar al historial
         ui->outHistorial->appendPlainText(str);
         // Limpiar la interfaz
         limpiar();
         // Mostrar mensage por 5 segundos en la barra de estado
-        ui->statusbar->showMessage("Calculando su IMC ",0100);
+        ui->statusbar->showMessage(tr("Calculando su IMC "),0100);
     }else{
         QMessageBox::critical(this,
-                              "Error",
-                              "Error al calcular el IMC.");
+                              tr("Error"),
+                              tr("Error al calcular el IMC."));
     }
 }
 
@@ -212,9 +212,9 @@ void Registrar::guardar()
 {
     // Abrir cuadro de dialogo para seleccionar ubicacion y nombre del archivo
     QString nombreArchivo = QFileDialog::getSaveFileName(this,
-                                                         "Guardar datos",
+                                                         tr("Guardar datos"),
                                                          QString(),
-                                                         "Archivo de salarios (*.slr)");
+                                                         tr("Archivo de salarios (*.slr)"));
     qDebug() << nombreArchivo;
     // Crear un objeto QFile
     QFile archivo(nombreArchivo);
@@ -226,12 +226,12 @@ void Registrar::guardar()
         salida << ui->outHistorial->toPlainText();
         salida << "." << endl;
         // Mostrar 5 segundos que todo fue bien
-        ui->statusbar->showMessage("Datos almacenados en " + nombreArchivo,5000);
+        ui->statusbar->showMessage(tr("Datos almacenados en ") + nombreArchivo,5000);
     }else{
         // Mensaje de error si no se puede abrir el archivo
         QMessageBox::warning(this,
-                             "Guardar datos",
-                             "No se pudo guardar los datos");
+                             tr("Guardar datos"),
+                             tr("No se pudo guardar los datos"));
     }
     //Cerrar archivo
     archivo.close();
@@ -241,9 +241,9 @@ void Registrar::abrir()
 {
     // Abrir cuadro de dialogo para seleccionar ubicacion y nombre del archivo
     QString nombreArchivo = QFileDialog::getSaveFileName(this,
-                                                         "Guardar datos",
+                                                         tr("Guardar datos"),
                                                          QDir::home().absolutePath(),
-                                                         "Archivo de salarios (*.slr)");
+                                                         tr("Archivo de salarios (*.slr)"));
     qDebug() << nombreArchivo;
     // Crear un objeto QFile
     QFile archivo(nombreArchivo);
@@ -263,12 +263,12 @@ void Registrar::abrir()
         ui->outFecha->text();
         ui->outIMC->text();
         // Mostrar 5 segundos que todo fue bien
-        ui->statusbar->showMessage("Datos almacenados en " + nombreArchivo,5000);
+        ui->statusbar->showMessage(tr("Datos almacenados en ") + nombreArchivo,5000);
     }else{
         // Mensaje de error si no se puede abrir el archivo
         QMessageBox::warning(this,
-                             "Abrir datos",
-                             "No se pudo abrir el archivo");
+                             tr("Abrir datos"),
+                             tr("No se pudo abrir el archivo"));
     }
     //Cerrar archivo
     archivo.close();
@@ -284,7 +284,7 @@ void Registrar::on_actionNuevo_triggered()
 {
     if(1==1){
         QString historial = "";
-        historial.append("                                   - - Historial - -\n--------------------------------------------------------------------");
+        historial.append(tr("                                   - - Historial - -\n--------------------------------------------------------------------"));
         limpiar();
         ui->outHistorial->clear();
         ui->outHistorial->appendPlainText(historial);
