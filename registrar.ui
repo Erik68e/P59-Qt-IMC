@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>631</width>
-    <height>525</height>
+    <width>821</width>
+    <height>520</height>
    </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>840</width>
+    <height>16777</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Registrar</string>
@@ -40,37 +46,6 @@
              <string notr="true">background-color: rgb(158, 216, 255);</string>
             </property>
             <layout class="QGridLayout" name="gridLayout_8">
-             <item row="2" column="0">
-              <widget class="QLabel" name="label_3">
-               <property name="text">
-                <string>Peso Min:</string>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="2">
-              <widget class="QLabel" name="label_6">
-               <property name="text">
-                <string>kg</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="2">
-              <widget class="QLabel" name="label_4">
-               <property name="text">
-                <string>kg</string>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="1">
-              <widget class="QDoubleSpinBox" name="inPesoMax"/>
-             </item>
-             <item row="2" column="2">
-              <widget class="QLabel" name="label_5">
-               <property name="text">
-                <string>kg</string>
-               </property>
-              </widget>
-             </item>
              <item row="0" column="0">
               <widget class="QLabel" name="label">
                <property name="text">
@@ -78,29 +53,15 @@
                </property>
               </widget>
              </item>
-             <item row="5" column="1">
-              <widget class="QPushButton" name="Calcular">
-               <property name="text">
-                <string>Calcular</string>
-               </property>
-               <property name="icon">
-                <iconset resource="Recursos.qrc">
-                 <normaloff>:/Recursos/calcular.png</normaloff>:/Recursos/calcular.png</iconset>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QDoubleSpinBox" name="inPesoMin"/>
-             </item>
-             <item row="3" column="0">
-              <widget class="QLabel" name="label_2">
-               <property name="text">
-                <string>Peso Max:</string>
-               </property>
-              </widget>
-             </item>
              <item row="0" column="1">
               <widget class="QDoubleSpinBox" name="inPeso"/>
+             </item>
+             <item row="0" column="2">
+              <widget class="QLabel" name="label_4">
+               <property name="text">
+                <string>kg</string>
+               </property>
+              </widget>
              </item>
              <item row="1" column="0">
               <widget class="QLabel" name="label_11">
@@ -124,26 +85,77 @@
                </property>
               </widget>
              </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_3">
+               <property name="text">
+                <string>Peso Max:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLabel" name="outPesoMin">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>kg</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="label_2">
+               <property name="text">
+                <string>Peso Min:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QLabel" name="outPesoMax">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>kg</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QPushButton" name="Calcular">
+               <property name="text">
+                <string>Calcular</string>
+               </property>
+               <property name="icon">
+                <iconset resource="Recursos.qrc">
+                 <normaloff>:/Recursos/calcular.png</normaloff>:/Recursos/calcular.png</iconset>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="2">
+              <widget class="QLabel" name="label_5">
+               <property name="text">
+                <string>kg</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="2">
+              <widget class="QLabel" name="label_6">
+               <property name="text">
+                <string>kg</string>
+               </property>
+              </widget>
+             </item>
             </layout>
            </widget>
           </item>
           <item row="0" column="1">
            <widget class="QWidget" name="widget_8" native="true">
             <layout class="QGridLayout" name="gridLayout_7">
-             <item row="1" column="0" colspan="3">
-              <widget class="QPlainTextEdit" name="outHistorial">
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(255, 255, 255);</string>
-               </property>
-               <property name="readOnly">
-                <bool>true</bool>
-               </property>
-               <property name="plainText">
-                <string>                     - - Historial - -
--------------------------------------------------</string>
-               </property>
-              </widget>
-             </item>
              <item row="2" column="2">
               <widget class="QLabel" name="outIMC">
                <property name="font">
@@ -185,6 +197,21 @@
                </property>
               </widget>
              </item>
+             <item row="1" column="0" colspan="3">
+              <widget class="QPlainTextEdit" name="outHistorial">
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 255, 255);</string>
+               </property>
+               <property name="readOnly">
+                <bool>true</bool>
+               </property>
+               <property name="plainText">
+                <string>                                   - - Historial - -
+--------------------------------------------------------------------
+</string>
+               </property>
+              </widget>
+             </item>
             </layout>
            </widget>
           </item>
@@ -222,7 +249,7 @@
               <widget class="QLabel" name="label_8">
                <property name="maximumSize">
                 <size>
-                 <width>125</width>
+                 <width>170</width>
                  <height>90</height>
                 </size>
                </property>
@@ -237,14 +264,8 @@
                </property>
               </widget>
              </item>
-            </layout>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="QWidget" name="widget_5" native="true">
-            <layout class="QGridLayout" name="gridLayout_3">
-             <item row="0" column="3">
-              <spacer name="horizontalSpacer_2">
+             <item row="0" column="1">
+              <spacer name="horizontalSpacer_3">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
@@ -256,7 +277,13 @@
                </property>
               </spacer>
              </item>
-             <item row="0" column="2">
+            </layout>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QWidget" name="widget_5" native="true">
+            <layout class="QGridLayout" name="gridLayout_3">
+             <item row="0" column="3">
               <widget class="QLabel" name="label_9">
                <property name="text">
                 <string> |
@@ -269,23 +296,10 @@
               </widget>
              </item>
              <item row="0" column="1">
-              <spacer name="horizontalSpacer">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item row="0" column="0">
               <widget class="QLabel" name="label_7">
                <property name="maximumSize">
                 <size>
-                 <width>6555</width>
+                 <width>100100</width>
                  <height>10562</height>
                 </size>
                </property>
@@ -301,6 +315,45 @@
                 <string>Masa Corporal</string>
                </property>
               </widget>
+             </item>
+             <item row="0" column="2">
+              <spacer name="horizontalSpacer">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="0" column="4">
+              <spacer name="horizontalSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="0" column="0">
+              <spacer name="horizontalSpacer_4">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
              </item>
             </layout>
            </widget>
@@ -323,7 +376,7 @@
                 </font>
                </property>
                <property name="text">
-                <string>- - - - - - - - - - - - - - - - - - - - - - - - - - - - -</string>
+                <string>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</string>
                </property>
               </widget>
              </item>
@@ -343,7 +396,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>631</width>
+     <width>821</width>
      <height>26</height>
     </rect>
    </property>

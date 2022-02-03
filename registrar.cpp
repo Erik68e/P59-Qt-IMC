@@ -38,14 +38,39 @@ void Registrar::calcular()
     // Altura en m
     m_altura = ui -> inAltura -> value();
     qDebug() << m_altura;
-    // Calacula la masa muscular
+    if(m_peso == 0 || m_altura == 0){
+        /*
+            QMessageBox msgBox;
+            msgBox.setText("El nombre o el numero de horas esta vacio");
+            msgBox.setIcon(QMessageBox::Warning);
+            msgBox.exec();
+            */
+        QMessageBox::warning(this,"Advertencia", "No hay informacion para calcular su IMC");
+        return;
+    }
+
+    if(m_pesoMin < m_peso){
+        m_pesoMin = m_peso;
+        QString min = "";
+        min.append(QString::number(m_pesoMin));
+        ui->outPesoMin->setText(min);
+        QString minimo = ui->outPesoMin->text();
+        m_pesoMin = minimo.toFloat();
+    }else if(m_pesoMin > m_peso){
+        m_pesoMax = m_peso;
+        QString max = "";
+        max.append(QString::number(m_pesoMax));
+        ui->outPesoMax->setText(max);
+    }
+
+    // Calcular la masa muscular
     m_IMC = m_peso/(m_altura*m_altura);
     qDebug() << m_IMC;
     QString masaC = QString::number(m_IMC/ 1.0, 'f', 2);
     ui->outIMC->setText(masaC);
     if(1 == 1){
         QString str = "";
-        str.append(currentDateTime() + " - " + QString::number(m_peso) + "kg - : " + QString::number(m_altura) + "m\n");
+        str.append(currentDateTime() + " - " + QString::number(m_peso) + "kg - " + QString::number(m_altura) + "m - IMC: " + masaC +"\n");
         // Mandar al historial
         ui->outHistorial->appendPlainText(str);
         // Limpiar la interfaz
@@ -155,6 +180,3 @@ void Registrar::on_actionSalir_triggered()
 {
     close();
 }
-
-
-

@@ -27,7 +27,6 @@ public:
     QString fecha();
     QString informacion();
 
-
 private slots:
     void on_Calcular_clicked();
 
@@ -48,6 +47,8 @@ private:
     void abrir();
 
     float m_peso = 0.0;
+    float m_pesoMin = 0.0;
+    float m_pesoMax = 0.0;
     float m_altura = 0.0;
     float m_IMC;
 
